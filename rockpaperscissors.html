@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<script>
+let playerWins = 0;
+let computerWins = 0;
+
+
+function computerPlay() {
+
+    let computerSelection = Math.floor(Math.random() * 3);
+
+    if (computerSelection==0) {    
+        return "rock";
+    }
+
+    else if (computerSelection==1){
+        return "paper";
+    }
+
+    else {
+        return "scissors";
+    }
+}
+
+    
+function playRound(playerSelection, computerSelection){
+
+    if (computerSelection == "scissors" && playerSelection=="rock"){
+        playerWins = ++playerWins;
+        console.log("player wins, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="scissors" && playerSelection=="paper"){   
+        computerWins = ++computerWins;     
+        console.log("you lost, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="scissors" && playerSelection=="scissors"){
+        console.log("you tied, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="rock" && playerSelection=="rock"){
+        console.log("you tied, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="rock" && playerSelection=="paper"){
+        playerWins = ++playerWins;
+        console.log("player wins, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="rock" && playerSelection=="scissors"){
+        computerWins = ++computerWins; 
+        console.log("you lost thats " + playerWins + "for you and " + computerWins + "for the cpu");
+     }
+
+    else if (computerSelection=="paper" && playerSelection=="rock"){
+        computerWins = ++computerWins; 
+        console.log("you lost, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="paper" & playerSelection=="paper"){
+        console.log("its a tie, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+
+    else if (computerSelection=="paper" & playerSelection=="scissors"){
+        playerWins = ++playerWins;
+        console.log("player wins, thats " + playerWins + "for you and " + computerWins + "for the cpu");
+    }
+}
+    
+function playGame() {
+
+    let computerSelection = computerPlay();
+    let playerSelection= prompt ("rock paper or scissors?").toLowerCase();
+    playRound(playerSelection, computerSelection);
+    computerSelection = computerPlay();
+    playerSelection= prompt ("rock paper or scissors?").toLowerCase();
+    playRound(playerSelection, computerSelection);
+    computerSelection = computerPlay();
+    playerSelection= prompt ("rock paper or scissors?").toLowerCase();
+    playRound(playerSelection, computerSelection);
+    computerSelection = computerPlay();
+    playerSelection= prompt ("rock paper or scissors?").toLowerCase();
+    playRound(playerSelection, computerSelection);
+    computerSelection = computerPlay();
+    playerSelection= prompt ("rock paper or scissors?").toLowerCase();
+    playRound(playerSelection, computerSelection);
+    if (playerWins > computerWins) {
+        console.log ("congrats you stomped that newb")}
+    else {
+            console.log ("try again nerd");
+         }
+ }
+
+
+</script>
+</body>
+</html>
